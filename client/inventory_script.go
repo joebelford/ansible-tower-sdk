@@ -51,7 +51,7 @@ func (i *InventoryScriptsService) ListInventoryScripts(params map[string]string)
 
 // CreateInventoryScript creates an awx InventoryScript.
 func (i *InventoryScriptsService) CreateInventoryScript(data map[string]interface{}, params map[string]string) (*InventoryScript, error) {
-    mandatoryFields = []string{"name", "inventory"}
+    mandatoryFields = []string{"name", "organization"}
     validate, status := ValidateParams(data, mandatoryFields)
 
     if !status {
