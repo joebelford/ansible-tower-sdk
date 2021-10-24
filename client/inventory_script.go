@@ -1,5 +1,4 @@
-package awx
-
+package tower
 import (
 "bytes"
 "encoding/json"

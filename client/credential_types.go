@@ -1,4 +1,4 @@
-package awx
+package tower
 
 type CredentialTypeService struct {
 	client *Client

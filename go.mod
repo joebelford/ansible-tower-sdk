@@ -1,3 +1,3 @@
 module github.com/Kaginari/ansible-tower-sdk
 
-go 1.14
+go 1.15

@@ -2,17 +2,17 @@
 
 When using this SDK you're going to need to set up a client and establish a connection to the remote AWX/Tower
 instance. Here's an example of how you might go about doing this:
- 
+
 ```go
 package main
 
 import (
     "log"
-    "github.com/mrcrilly/goawx/client"
+    "github.com/Kaginari/ansible-tower-sdk/client"
 )
 
 func main() {
-    client := awx.NewAWX("http://awx.your_server_host.com", "your_awx_username", "your_awx_passwd", nil)
+    client := tower.NewAWX("http://awx.your_server_host.com", "your_awx_username", "your_awx_passwd", nil)
     // ...
 }
 ```
