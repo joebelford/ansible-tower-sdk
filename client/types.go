@@ -322,7 +322,6 @@ type JobTemplate struct {
 	Name                  string      `json:"name"`
 	Description           string      `json:"description"`
 	JobType               string      `json:"job_type"`
-    ScmBranch             string      `json:"scm_branch"`
 	Inventory             int         `json:"inventory"`
 	Project               int         `json:"project"`
 	Playbook              string      `json:"playbook"`
