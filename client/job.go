@@ -1,4 +1,5 @@
 package tower
+
 import (
 	"bytes"
 	"encoding/json"
@@ -37,6 +38,12 @@ type JobEventsResponse struct {
 // CancelJobResponse represents `CancelJob` endpoint response.
 type CancelJobResponse struct {
 	Detail string `json:"detail"`
+}
+
+// ListJobsResponse represents `ListJobs` endpoint response.
+type ListJobsResponse struct {
+	Pagination
+	Results []*Job `json:"results"`
 }
 
 const jobAPIEndpoint = "/api/v2/jobs/"
@@ -120,6 +127,21 @@ func (j *JobService) GetJobEvents(id int, params map[string]string) ([]JobEvent,
 	result := new(JobEventsResponse)
 	endpoint := fmt.Sprintf("%s%d/job_events/", jobAPIEndpoint, id)
 	resp, err := j.client.Requester.GetJSON(endpoint, result, params)
+	if err != nil {
+		return nil, result, err
+	}
+
+	if err := CheckResponse(resp); err != nil {
+		return nil, result, err
+	}
+
+	return result.Results, result, nil
+}
+
+// ListJobs shows list of awx jobs.
+func (j *JobService) ListJobs(params map[string]string) ([]*Job, *ListJobsResponse, error) {
+	result := new(ListJobsResponse)
+	resp, err := j.client.Requester.GetJSON(jobAPIEndpoint, result, params)
 	if err != nil {
 		return nil, result, err
 	}
