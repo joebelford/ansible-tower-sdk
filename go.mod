@@ -1,3 +1,3 @@
-module github.com/Kaginari/ansible-tower-sdk
+module github.com/joebelford/ansible-tower-sdk
 
 go 1.15
