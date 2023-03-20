@@ -1,4 +1,5 @@
 package tower
+
 import (
 	"encoding/json"
 	"errors"
