@@ -36,9 +36,9 @@ type MetricsResponse struct {
 const metricsAPIEndpoint = "/api/v2/metrics/?format=json"
 
 // ListMetrics shows list of awx metrics.
-func (p *MetricsService) ListMetrics() (*MetricsResponse, error) {
+func (m *MetricsService) ListMetrics() (*MetricsResponse, error) {
 	result := new(MetricsResponse)
-	resp, err := p.client.Requester.GetJSON(metricsAPIEndpoint, result, nil)
+	resp, err := m.client.Requester.GetJSON(metricsAPIEndpoint, result, nil)
 	if err != nil {
 		return nil, err
 	}
