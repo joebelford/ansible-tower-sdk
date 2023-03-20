@@ -1,4 +1,5 @@
 package tower
+
 import (
 	"time"
 )
@@ -785,15 +786,26 @@ type WorkflowJobTemplateNode struct {
 	Identifier             string    `json:"identifier"`
 }
 type InventoryScript struct {
-    ID                     int          `json:"id"`
-    Type                   string       `json:"type"`
-    URL                    string       `json:"url"`
-    Related                *Related     `json:"related"`
-    SummaryFields          *Summary     `json:"summary_fields"`
-    Created                time.Time    `json:"created"`
-    Modified               time.Time    `json:"modified"`
-    Name                    string      `json:"name"`
-    Description             string      `json:"description"`
-    Script                  string      `json:"script"`
-    Organization            int         `json:"organization"`
+	ID            int       `json:"id"`
+	Type          string    `json:"type"`
+	URL           string    `json:"url"`
+	Related       *Related  `json:"related"`
+	SummaryFields *Summary  `json:"summary_fields"`
+	Created       time.Time `json:"created"`
+	Modified      time.Time `json:"modified"`
+	Name          string    `json:"name"`
+	Description   string    `json:"description"`
+	Script        string    `json:"script"`
+	Organization  int       `json:"organization"`
+}
+
+type Metric struct {
+	HelpText string         `json:"help_text"`
+	Type     string         `json:"type"`
+	Samples  []MetricSample `json:"samples"`
+}
+
+type MetricSample struct {
+	Labels map[string]string `json:"labels"`
+	Value  float64           `json:"value"`
 }
